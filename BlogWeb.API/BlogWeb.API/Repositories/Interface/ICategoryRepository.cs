@@ -1,6 +1,6 @@
-﻿using CodePulse.API.Models.Domain;
+﻿using BlogWeb.API.Models.Domain;
 
-namespace CodePulse.API.Repositories.Interface
+namespace BlogWeb.API.Repositories.Interface
 {
     public interface ICategoryRepository
     {

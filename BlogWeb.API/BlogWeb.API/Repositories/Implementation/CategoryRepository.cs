@@ -1,9 +1,9 @@
-﻿using CodePulse.API.Data;
-using CodePulse.API.Models.Domain;
-using CodePulse.API.Repositories.Interface;
+﻿using BlogWeb.API.Data;
+using BlogWeb.API.Models.Domain;
+using BlogWeb.API.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace CodePulse.API.Repositories.Implementation
+namespace BlogWeb.API.Repositories.Implementation
 {
     public class CategoryRepository : ICategoryRepository
     {

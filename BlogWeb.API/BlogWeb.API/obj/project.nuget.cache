@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yZyQAvcmICaWj3IhB8Gcbt8U93fUr8fIMSsWj9UovRnAJzDRrq+qXeLCoYvW75ANrDD2Ipx6W1BbaD/a5SNKxw==",
+  "dgSpecHash": "QH0X7/7WG1JrMNDyasz2/MqaIlJkidkMplRFzZbtPpEkeAAQyxX+UpPfs0hj6GgMXlnmReKsfa5sw7zcgbRe7A==",
   "success": true,
-  "projectFilePath": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\API\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj",
+  "projectFilePath": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\WebBlogDotNet\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

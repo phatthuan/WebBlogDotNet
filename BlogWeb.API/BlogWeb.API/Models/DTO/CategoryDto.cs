@@ -1,4 +1,4 @@
-﻿namespace CodePulse.API.Models.DTO
+﻿namespace BlogWeb.API.Models.DTO
 {
     public class CategoryDto
     {

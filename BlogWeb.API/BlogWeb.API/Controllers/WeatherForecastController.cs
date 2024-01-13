@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace CodePulse.API.Controllers
+namespace BlogWeb.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\API\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj": {}
+    "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\WebBlogDotNet\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj": {}
   },
   "projects": {
-    "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\API\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj": {
+    "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\WebBlogDotNet\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\API\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj",
+        "projectUniqueName": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\WebBlogDotNet\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj",
         "projectName": "BlogWeb.API",
-        "projectPath": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\API\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj",
+        "projectPath": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\WebBlogDotNet\\BlogWeb.API\\BlogWeb.API\\BlogWeb.API.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\API\\BlogWeb.API\\BlogWeb.API\\obj\\",
+        "outputPath": "D:\\DuAn\\DotNet\\Udemy\\BlogWeb\\WebBlogDotNet\\BlogWeb.API\\BlogWeb.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

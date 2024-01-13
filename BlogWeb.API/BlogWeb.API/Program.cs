@@ -1,6 +1,6 @@
-using CodePulse.API.Data;
-using CodePulse.API.Repositories.Implementation;
-using CodePulse.API.Repositories.Interface;
+using BlogWeb.API.Data;
+using BlogWeb.API.Repositories.Implementation;
+using BlogWeb.API.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("CodePulseConnectionString"));
+    option.UseSqlServer(builder.Configuration.GetConnectionString("BlogWebConnectionString"));
 });
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CodePulse.API.Migrations
+namespace BlogWeb.API.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration

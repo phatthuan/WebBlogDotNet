@@ -1,4 +1,4 @@
-﻿namespace CodePulse.API.Models.Domain
+﻿namespace BlogWeb.API.Models.Domain
 {
     public class Category
     {

@@ -1,4 +1,4 @@
-namespace CodePulse.API
+namespace BlogWeb.API
 {
     public class WeatherForecast
     {
