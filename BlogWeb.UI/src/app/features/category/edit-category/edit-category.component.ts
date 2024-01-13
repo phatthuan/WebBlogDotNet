@@ -37,11 +37,6 @@ export class EditCategoryComponent implements OnInit, OnDestroy{
     })
   }
 
-  ngOnDestroy(): void {
-    this.paramsSubcription?.unsubscribe()
-    this.editCategorySubcription?.unsubscribe()
-  }
-
   onFormSubmit(): void{
     const updateCategoryRequest: UpdateCategoryRequest = {
       name: this.category?.name ?? '',
@@ -67,6 +62,11 @@ export class EditCategoryComponent implements OnInit, OnDestroy{
         }
       })
     }
+  }
+
+  ngOnDestroy(): void {
+    this.paramsSubcription?.unsubscribe()
+    this.editCategorySubcription?.unsubscribe()
   }
 
 }
