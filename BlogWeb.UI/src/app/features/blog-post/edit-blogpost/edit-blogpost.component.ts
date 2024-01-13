@@ -17,6 +17,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
   routeSubscription?: Subscription
   getBlogPostSubscript?: Subscription
   updateBlogPostSubscript?: Subscription
+  deleteBlogPostSubscript?: Subscription
   model?: BlogPost
   categories$?: Observable<Category[]>
   selectedCategories?: string[]
@@ -52,6 +53,7 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
     this.getBlogPostSubscript?.unsubscribe()
     this.routeSubscription?.unsubscribe()
     this.updateBlogPostSubscript?.unsubscribe()
+    this.deleteBlogPostSubscript?.unsubscribe()
   }
 
   onFormSubmit(): void{
@@ -73,6 +75,17 @@ export class EditBlogpostComponent implements OnInit, OnDestroy {
         next: (response) => {
           this.router.navigateByUrl('/admin/blogposts')
         }
+      })
+    }
+  }
+
+  onDelete(): void{
+    if(this.id){
+      this.deleteBlogPostSubscript = this.blogPostService.deleteBlogPost(this.id)
+      .subscribe({
+        next: (response => {
+          this.router.navigateByUrl('admin/blogposts')
+        })
       })
     }
   }
