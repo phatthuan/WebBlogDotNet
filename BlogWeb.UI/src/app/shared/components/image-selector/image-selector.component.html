@@ -5,7 +5,7 @@
     <div class="card-body">
       <div class="d-flex flex-md-row flex-sm-column flex-wrap">
         <div class="col-8 p-4" style="overflow-y: scroll;">
-          <!-- <ng-container *ngIf="images$ | async as images">
+          <ng-container *ngIf="images$ | async as images">
             <div class="d-flex flex-wrap">
               <div *ngFor="let image of images"
               (click)="selectImage(image)"
@@ -15,25 +15,25 @@
                 <span class="mt-1">{{image.title}}</span>
               </div>
             </div>
-          </ng-container> -->
+          </ng-container>
   
         </div>
         <div class="col-4 p-4 bg-light">
           <h5>Upload Image</h5>
   
-          <form #form="ngForm" >
+          <form #form="ngForm" (ngSubmit)="uploadImage()">
             <div class="mt-3">
-              <input type="file" class="form-control" >
+              <input type="file" class="form-control" (change)="onFileUploadChange($event)">
             </div>
   
             <div class="mt-3">
               <input type="text" class="form-control"
-              placeholder="File Name" name="filename">
+              placeholder="File Name" name="filename" [(ngModel)] = "fileName">
             </div>
   
             <div class="mt-3">
               <input type="text" class="form-control"
-              placeholder="Title" name="title">
+              placeholder="Title" name="title" [(ngModel)] = "title">
             </div>
   
             <div class="mt-3">
