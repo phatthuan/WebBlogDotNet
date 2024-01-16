@@ -3,6 +3,7 @@ using BlogWeb.API.Models.Domain;
 using BlogWeb.API.Models.DTO;
 using BlogWeb.API.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
+using BlogWeb.API.Repositories.Implementation;
 
 namespace BlogWeb.API.Controllers
 {
@@ -38,7 +39,7 @@ namespace BlogWeb.API.Controllers
             foreach (var categoryGuid in request.Categories) {
                 var existingCategory = await categoryRepository.GetById(categoryGuid);
 
-                if(existingCategory is not null)
+                if (existingCategory is not null)
                 {
                     blogPost.Categories.Add(existingCategory);
                 }
@@ -59,9 +60,9 @@ namespace BlogWeb.API.Controllers
                 UrlHandle = blogPost.UrlHandle,
                 Categories = blogPost.Categories.Select(x => new CategoryDto
                 {
-                    Id=x.Id,
+                    Id = x.Id,
                     Name = x.Name,
-                    UrlHandle=x.UrlHandle,
+                    UrlHandle = x.UrlHandle,
                 }).ToList()
             };
 
@@ -82,7 +83,7 @@ namespace BlogWeb.API.Controllers
                     Id = blogPost.Id,
                     Author = blogPost.Author,
                     Content = blogPost.Content,
-                    FeaturedImageUrl= blogPost.FeaturedImageUrl,
+                    FeaturedImageUrl = blogPost.FeaturedImageUrl,
                     IsVisible = blogPost.IsVisible,
                     PublishedDate = blogPost.PublishedDate,
                     ShortDescription = blogPost.ShortDescription,
@@ -104,14 +105,14 @@ namespace BlogWeb.API.Controllers
         [Route("{id:Guid}")]
         public async Task<IActionResult> GetBlogPostById([FromRoute] Guid id)
         {
-            var blogPost =  await blogPostRepository.GetByIdAsync(id);
+            var blogPost = await blogPostRepository.GetByIdAsync(id);
 
-            if(blogPost is null)
+            if (blogPost is null)
             {
                 return NotFound();
             }
 
-            var response = new BlogPostDto { 
+            var response = new BlogPostDto {
                 Id = blogPost.Id,
                 Author = blogPost.Author,
                 Content = blogPost.Content,
@@ -123,7 +124,39 @@ namespace BlogWeb.API.Controllers
                 UrlHandle = blogPost.UrlHandle,
                 Categories = blogPost.Categories.Select(x => new CategoryDto
                 {
-                    Id= x.Id,
+                    Id = x.Id,
+                    Name = x.Name,
+                    UrlHandle = x.UrlHandle,
+                }).ToList()
+            };
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("{urlHandle}")]
+        public async Task<IActionResult> GetBlogPostByUrlHandle([FromRoute] string urlHandle)
+        {
+            var blogPost = await blogPostRepository.GetByUrlHandleAsync(urlHandle);
+            if (blogPost is null)
+            {
+                return NotFound();
+            }
+
+            var response = new BlogPostDto
+            {
+                Id = blogPost.Id,
+                Author = blogPost.Author,
+                Content = blogPost.Content,
+                FeaturedImageUrl = blogPost.FeaturedImageUrl,
+                IsVisible = blogPost.IsVisible,
+                PublishedDate = blogPost.PublishedDate,
+                ShortDescription = blogPost.ShortDescription,
+                Title = blogPost.Title,
+                UrlHandle = blogPost.UrlHandle,
+                Categories = blogPost.Categories.Select(x => new CategoryDto
+                {
+                    Id = x.Id,
                     Name = x.Name,
                     UrlHandle = x.UrlHandle,
                 }).ToList()
