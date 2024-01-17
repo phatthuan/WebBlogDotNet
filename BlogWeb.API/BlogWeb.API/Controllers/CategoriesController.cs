@@ -2,6 +2,7 @@
 using BlogWeb.API.Models.Domain;
 using BlogWeb.API.Models.DTO;
 using BlogWeb.API.Repositories.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,6 +40,7 @@ namespace BlogWeb.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllCategories()
         {
             var categories = await CategoryRepository.GetAllAsync();
