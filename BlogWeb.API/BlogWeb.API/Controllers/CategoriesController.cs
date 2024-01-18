@@ -20,6 +20,7 @@ namespace BlogWeb.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryRequestDto request)
         {
             var category = new Category
@@ -40,7 +41,6 @@ namespace BlogWeb.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> GetAllCategories()
         {
             var categories = await CategoryRepository.GetAllAsync();
@@ -81,6 +81,7 @@ namespace BlogWeb.API.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> EditCategory([FromRoute] Guid id, [FromBody] UpdateCategoryRequestDto request)
         {
             var category = new Category
@@ -108,6 +109,7 @@ namespace BlogWeb.API.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> DeleteCategory([FromRoute] Guid id)
         {
             var category = await CategoryRepository.DeleteAsync(id);

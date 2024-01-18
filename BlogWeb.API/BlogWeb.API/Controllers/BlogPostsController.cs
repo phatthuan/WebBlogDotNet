@@ -4,6 +4,7 @@ using BlogWeb.API.Models.DTO;
 using BlogWeb.API.Repositories.Interface;
 using Microsoft.AspNetCore.Mvc;
 using BlogWeb.API.Repositories.Implementation;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogWeb.API.Controllers
 {
@@ -21,6 +22,7 @@ namespace BlogWeb.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> CreateBlogPost([FromBody] CreateBlogPostRequestDto request)
         {
             var blogPost = new BlogPost
@@ -167,6 +169,7 @@ namespace BlogWeb.API.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> UpdateBlogPostById([FromRoute] Guid id, [FromBody] UpdateBlogPostRequestDto request)
         {
             var blogPost = new BlogPost
@@ -223,6 +226,7 @@ namespace BlogWeb.API.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> DeleteBlogPost([FromRoute] Guid id)
         {
             var blogPost = await blogPostRepository.DeleteAsync(id);
