@@ -1,4 +1,5 @@
 ﻿using BlogWeb.API.Models.DTO;
+using BlogWeb.API.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,11 @@ namespace BlogWeb.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<IdentityUser> userManager;
-        public AuthController(UserManager<IdentityUser> userManager)
+        private readonly ITokenRepository tokenRepository;
+        public AuthController(UserManager<IdentityUser> userManager , ITokenRepository tokenRepository)
         {
             this.userManager = userManager;
+            this.tokenRepository = tokenRepository;
         }
 
         [HttpPost]
@@ -68,18 +71,20 @@ namespace BlogWeb.API.Controllers
 
             if (identityUser is not null)
             {
-                var roles = await userManager.GetRolesAsync(identityUser);
                 var checkPasswordResult = await userManager.CheckPasswordAsync(identityUser, request.Password);
 
                 if (checkPasswordResult)
                 {
+                    var roles = await userManager.GetRolesAsync(identityUser);
+
+                    var jwtToken = tokenRepository.CreateJwtToken(identityUser, roles.ToList());
                     var response = new LoginResponseDto()
                     {
                         Email = request.Email,
                         Roles = roles.ToList(),
-                        Token = "TOKEN"
+                        Token = jwtToken
                     };
-                    return Ok();
+                    return Ok(response);
                 }
             }
             ModelState.AddModelError("", "Email or Password Incorrect");
